@@ -77,19 +77,6 @@ class ModelXRay(object):
                 y_pred = self.model.predict(rows)
         return y_pred
 
-
-    # def gen_model_pred(self, row, col_idx, values):
-    #     rows = []
-    #     for val in values:
-    #         sim_row = row.copy()
-    #         sim_row[col_idx] = val
-    #         rows.append(sim_row)
-    #     # If the row is a Series, make it into a DF
-    #     if type(rows[0]) == pd.Series:
-    #         rows = pd.DataFrame(rows)
-    #     y_pred = self._get_predictions(rows)
-    #     return y_pred
-
     def gen_model_pred(self, row, col_idx, values):
         sim_row = row.copy()
         rows = np.tile(sim_row, (len(values), 1))
